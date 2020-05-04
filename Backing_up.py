@@ -58,11 +58,10 @@ def end_of_time(started):
 def prCyan(skk, backups): 
     print("\033[96m{} {}\033[00m".format(skk, backups))
 
-#  rsync backuping up
+#  rsync backing up
 for item in range(len(backups)):
     spacing()
     started = time.time()
-    #  print("Backing up " + str(backups[item]))
     prCyan("Backup up ", str(backups[item]))
     system("rsync -avPzh ~/" + str(backups[item]) + " ~/Insync/'Local Backups' --delete --exclude 'node_modules'")
     print("This script took: " + end_of_time(started))
